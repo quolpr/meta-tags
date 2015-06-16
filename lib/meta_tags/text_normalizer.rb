@@ -11,6 +11,7 @@ module MetaTags
     end
 
     # Normalize description value.
+    # Убрал обрезание в связи с требованием по ТЗ
     #
     # @param [String] description description string.
     # @return [String] text with tags removed, squashed spaces, truncated
@@ -18,7 +19,7 @@ module MetaTags
     #
     def self.normalize_description(description)
       return '' if description.blank?
-      helpers.truncate(cleanup_string(description), :length => 200)
+      cleanup_string(description)
     end
 
     # Normalize keywords value.
@@ -27,8 +28,8 @@ module MetaTags
     # @return [String] list of keywords joined with comma, with tags removed.
     #
     def self.normalize_keywords(keywords)
-      return '' if keywords.blank?
-      cleanup_strings(keywords).join(', ').downcase
+      return '' if description.blank?
+      cleanup_string(description)
     end
 
     # Easy way to get access to Rails helpers.
