@@ -29,7 +29,7 @@ module MetaTags
     #
     def self.normalize_keywords(keywords)
       return '' if description.blank?
-      cleanup_string(description)
+      cleanup_strings(keywords).join(', ').downcase
     end
 
     # Easy way to get access to Rails helpers.
