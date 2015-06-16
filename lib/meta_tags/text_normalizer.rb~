@@ -28,7 +28,7 @@ module MetaTags
     # @return [String] list of keywords joined with comma, with tags removed.
     #
     def self.normalize_keywords(keywords)
-      return '' if keywords.blank?
+      return '' if description.blank?
       cleanup_strings(keywords).join(', ').downcase
     end
 
